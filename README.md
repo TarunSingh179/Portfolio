@@ -1,52 +1,45 @@
 # Professional Portfolio 🌟
 
-A truly dynamic, responsive, and advanced personal portfolio website designed to showcase my skills, projects, certifications, and experience. It integrates modern, high-end design principles alongside seamless backend functionality.
+A highly dynamic, extremely interactive, and premium immersive personal portfolio website. This project merges cutting-edge frontend web technologies (3D rendering and micro-animations) with a robust asynchronous Python backend and a NoSQL database system to manage content dynamically.
 
-## 🚀 Features
-- **Immersive User Interface:** Built with React and Framer Motion for incredibly smooth transitions (HeroCanvas, FadeIn, WaveDividers).
-- **Comprehensive Sections:** Distinct sections for Hero, About, What I Do, Skills, Projects, Certifications, Internship, and Contact.
-- **Micro-Animations:** Interactive hovering effects, custom cursors, and particle backgrounds that elevate user engagement.
-- **Backend Integration:** Fast API endpoints provided by a Python minimal backend structure.
-- **Theme Management:** Fully supported dynamic dark and light themes (ThemeContext).
-- **Responsive Layouts:** Impeccable formatting on mobile, tablet, and ultra-wide screens using Tailwind utility classes.
+## 🚀 Key Features
+- **3D Interactive Elements:** Uses `@react-three/fiber` and `@react-three/drei` for rendering beautiful 3D canvases seamlessly in the browser.
+- **Complex UI Animations:** Orchestrated via `framer-motion` and `gsap` for incredibly smooth scrolling, cursor effects, wave dividers, and layout transitions.
+- **Dynamic Marquees & Typing:** Integrates `react-fast-marquee` and `react-type-animation` for continuous content streams and hero text effects.
+- **Comprehensive API Management:** A fully featured FastAPI backend with structured routers (Auth, Projects, Skills, Education, Certifications, Internships, Contacts, and AI features).
+- **Asynchronous Database:** Connects to MongoDB asynchronously for fast document retrieval and content updates.
+- **CORS & Static Handling:** Robust middleware routing for file uploads and cross-origin resource sharing configured directly in FastAPI.
 
 ## 💻 Tech Stack
-- **Frontend Framework:** React.js, Tailwind CSS
-- **Animations:** Framer Motion, GSAP, CSS Animations
-- **Backend Framework:** Python (FastAPI/Flask minimal setup)
-- **Database Layer:** Backend configured with SQLAlchemy data models.
+- **Frontend Core:** React.js (v18), React Router
+- **3D & Animation:** Three.js, React Three Fiber, Framer Motion, GSAP
+- **Styling:** Tailwind CSS, PostCSS
+- **Backend Framework:** FastAPI (Python 3.x)
+- **Database:** MongoDB (Asynchronous motor integration)
+
+## 📁 Source Configuration
+- `portfolio-frontend/src/`: Contains immersive components (`HeroCanvas.jsx`, `Cursor.jsx`, `ThemeContext.jsx`) and section layouts.
+- `portfolio-backend/app/main.py`: The entry point for the FastAPI server mounting endpoints and static directories.
+- `portfolio-backend/app/routes/`: Categorized endpoint handlers for separating operational concerns.
+- `portfolio-backend/app/models/`: NoSQL schemas and validation logics.
 
 ## 🛠️ Installation & Setup
 
-### Frontend Setup
-1. Open a new terminal and change into the `portfolio-frontend` directory.
-   ```bash
-   cd portfolio-frontend
-   ```
-2. Install the required Node packages:
-   ```bash
-   npm install
-   ```
-3. Run the development server to view the UI live:
-   ```bash
-   npm start
-   ```
+### Database
+- Ensure you have a running MongoDB instance locally or in the cloud. Check `portfolio-backend/.env` for connection configurations.
 
 ### Backend Setup
-1. Change into the `portfolio-backend` directory.
-   ```bash
-   cd portfolio-backend
-   ```
-2. Install the necessary Python packages using pip:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Start the Python local server to initialize endpoints and database connections:
-   ```bash
-   start_backend.bat  # On Windows
-   ```
+```bash
+cd portfolio-backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+*The FastAPI server mounts on http://localhost:8000 and serves interactive docs at `/docs`.*
 
-## 📁 Key Directories
-- `portfolio-frontend/src/components/`: Houses all section logic (Hero, Skills, Projects) and advanced UI features (HoverLinks, Canvas).
-- `portfolio-backend/app/routes/`: Manages all logic corresponding to different data tables.
-- `portfolio-backend/app/models/`: Holds the ORM classes for database interaction.
+### Frontend Setup
+```bash
+cd portfolio-frontend
+npm install
+npm start
+```
+*The React development server runs automatically on http://localhost:3000.* (Note: It automatically proxies to backend port 8000).
